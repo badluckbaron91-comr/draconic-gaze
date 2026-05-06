@@ -1,0 +1,13 @@
+node_modules/
+dist-electron/
+client-dist/
+release/
+*.db
+*.db-shm
+*.db-wal
+gh-tool/
+gh.zip
+nsis-tool/
+nsis.zip
+.claude/
+download-page/

@@ -1,0 +1,39 @@
+{
+  "name": "draconic-gaze",
+  "version": "1.0.0",
+  "description": "D&D campaign management app for remote play",
+  "author": "Draconic Gaze",
+  "private": true,
+  "main": "dist-electron/main.js",
+  "workspaces": [
+    "shared",
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "npm run dev --workspace=client",
+    "dev:server": "npm run dev --workspace=server",
+    "build": "cd client && npx vite build --outDir ../client-dist",
+    "start": "npm run build && npx tsx server/src/index.ts --static",
+    "serve": "npx tsx server/src/index.ts --static",
+    "electron:rebuild": "npx @electron/rebuild -f -m . -w better-sqlite3",
+    "electron:compile": "node electron/build.mjs",
+    "electron:dev": "npm run electron:rebuild && npm run electron:compile && concurrently \"cd client && npx vite\" \"sleep 3 && npx electron .\"",
+    "electron:build-client": "cd client && npx vite build --outDir ../client-dist",
+    "electron:build": "npm run electron:rebuild && npm run electron:build-client && npm run electron:compile && npx electron-builder --win",
+    "electron:pack": "npm run electron:rebuild && npm run electron:build-client && npm run electron:compile && npx electron-builder --dir"
+  },
+  "dependencies": {
+    "localtunnel": "^2.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3",
+    "electron-updater": "^6.2.1",
+    "esbuild": "^0.21.5",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.0"
+  }
+}
