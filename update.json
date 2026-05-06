@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "downloadUrl": "PASTE_YOUR_INSTALLER_DOWNLOAD_LINK_HERE",
-  "releaseNotes": "Initial release",
+  "downloadUrl": "https://github.com/badluckbaron91-comr/draconic-gaze/releases/download/v1.0.0/Draconic.Gaze.Setup.exe",
+  "releaseNotes": "Initial release - Campaign management, character creator, DM tools, dice roller, real-time chat",
   "fileName": "Draconic Gaze Setup.exe"
 }
